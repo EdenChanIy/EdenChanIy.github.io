@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[vue使用axios和qs完成向后台发出post请求]]></title>
+    <url>%2F2018%2F06%2F19%2Fvue%E4%BD%BF%E7%94%A8axios%E5%92%8Cqs%E5%AE%8C%E6%88%90%E5%90%91%E5%90%8E%E5%8F%B0%E5%8F%91%E5%87%BApost%E8%AF%B7%E6%B1%82%2F</url>
+    <content type="text"><![CDATA[Vue.js使用axios向后台发出post请求和获取数据一样，可以直接调用函数 12//在需要交互的.vue文件中添加引用import axios from 'axios'; 12345678910111213//然后在methods使用post方法发出请求methods: &#123; postData()&#123; axios.post('url', &#123; id: '1', name: 'user1' &#125;).then((response)=&gt;&#123; //do something with the response &#125;).catch((error)=&gt;&#123; console.log(error); &#125;) &#125;&#125; 但是有时候使用这种方法后台有可能接收不到数据，因为数据没有序列化，所以这个时候可以使用qs插件地址库对数据进行编码，将axios发送的数据格式转换为form-data格式 123//安装axios的时候会默认安装qs//在需要交互的.vue文件中添加引用import qs from 'qs'; 1234567891011121314//然后在methods使用post方法发出请求methods: &#123; postData()&#123; var data = qs.stringify(&#123; id: '1', name: 'user1' &#125;); axios.post('url', data&#125;).then((response)=&gt;&#123; //do something with the response &#125;).catch((error)=&gt;&#123; console.log(error); &#125;) &#125;&#125;]]></content>
+      <tags>
+        <tag>Vue.js</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[vue使用axios获取后台数据]]></title>
     <url>%2F2018%2F06%2F18%2Fvue%E4%BD%BF%E7%94%A8axios%E8%8E%B7%E5%8F%96%E5%90%8E%E5%8F%B0%E6%95%B0%E6%8D%AE%2F</url>
     <content type="text"><![CDATA[在使用Vue.js进行前端开发的时候，有时候需要从后台获取数据，在这里我是用的是axios的方法。 12//在需要交互的.vue文件中添加引用import axios from 'axios'; 12345678910//然后在methods中使用get方法对数据进行获取methods: &#123; getData()&#123; axios.get('url').then((response)=&gt;&#123; //do something with the response &#125;).catch((response)=&gt;&#123; console.log(response); &#125;) &#125; &#125;]]></content>
