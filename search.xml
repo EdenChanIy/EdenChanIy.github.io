@@ -1,24 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<search>
-  <entry>
-    <title><![CDATA[vue使用axios和qs完成向后台发出post请求]]></title>
-    <url>%2F2018%2F06%2F19%2Fvue%E4%BD%BF%E7%94%A8axios%E5%92%8Cqs%E5%AE%8C%E6%88%90%E5%90%91%E5%90%8E%E5%8F%B0%E5%8F%91%E5%87%BApost%E8%AF%B7%E6%B1%82%2F</url>
-    <content type="text"><![CDATA[Vue.js使用axios向后台发出post请求和获取数据一样，可以直接调用函数 12//在需要交互的.vue文件中添加引用import axios from 'axios'; 12345678910111213//然后在methods使用post方法发出请求methods: &#123; postData()&#123; axios.post('url', &#123; id: '1', name: 'user1' &#125;).then((response)=&gt;&#123; //do something with the response &#125;).catch((error)=&gt;&#123; console.log(error); &#125;) &#125;&#125; 但是有时候使用这种方法后台有可能接收不到数据，因为数据没有序列化，所以这个时候可以使用qs插件地址库对数据进行编码，将axios发送的数据格式转换为form-data格式 123//安装axios的时候会默认安装qs//在需要交互的.vue文件中添加引用import qs from 'qs'; 1234567891011121314//然后在methods使用post方法发出请求methods: &#123; postData()&#123; var data = qs.stringify(&#123; id: '1', name: 'user1' &#125;); axios.post('url', data&#125;).then((response)=&gt;&#123; //do something with the response &#125;).catch((error)=&gt;&#123; console.log(error); &#125;) &#125;&#125;]]></content>
-      <tags>
-        <tag>Vue.js</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[vue使用axios获取后台数据]]></title>
-    <url>%2F2018%2F06%2F18%2Fvue%E4%BD%BF%E7%94%A8axios%E8%8E%B7%E5%8F%96%E5%90%8E%E5%8F%B0%E6%95%B0%E6%8D%AE%2F</url>
-    <content type="text"><![CDATA[在使用Vue.js进行前端开发的时候，有时候需要从后台获取数据，在这里我是用的是axios的方法。 12//在需要交互的.vue文件中添加引用import axios from 'axios'; 12345678910//然后在methods中使用get方法对数据进行获取methods: &#123; getData()&#123; axios.get('url').then((response)=&gt;&#123; //do something with the response &#125;).catch((response)=&gt;&#123; console.log(response); &#125;) &#125; &#125;]]></content>
-      <tags>
-        <tag>Vue.js</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Welcome]]></title>
-    <url>%2F2018%2F06%2F14%2FWelcome%2F</url>
-    <content type="text"><![CDATA[欢迎来到我的博客，这里将会分享一些我日常遇到的问题或是趣事]]></content>
-  </entry>
+<search> 
+  
+    
+    <entry>
+      <title>vue使用axios和qs完成向后台发出post请求</title>
+      <link href="/2018/06/19/vue%E4%BD%BF%E7%94%A8axios%E5%92%8Cqs%E5%AE%8C%E6%88%90%E5%90%91%E5%90%8E%E5%8F%B0%E5%8F%91%E5%87%BApost%E8%AF%B7%E6%B1%82/"/>
+      <url>/2018/06/19/vue%E4%BD%BF%E7%94%A8axios%E5%92%8Cqs%E5%AE%8C%E6%88%90%E5%90%91%E5%90%8E%E5%8F%B0%E5%8F%91%E5%87%BApost%E8%AF%B7%E6%B1%82/</url>
+      <content type="html"><![CDATA[<blockquote><p>Vue.js使用axios向后台发出post请求和获取数据一样，可以直接调用函数</p></blockquote><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//在需要交互的.vue文件中添加引用</span></span><br><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">'axios'</span>;</span><br></pre></td></tr></table></figure><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//然后在methods使用post方法发出请求</span></span><br><span class="line">methods: &#123;</span><br><span class="line">       postData()&#123;</span><br><span class="line">           axios.post(<span class="string">'url'</span>, &#123;</span><br><span class="line">               id: <span class="string">'1'</span>,</span><br><span class="line">               name: <span class="string">'user1'</span></span><br><span class="line">           &#125;).then(<span class="function">(<span class="params">response</span>)=&gt;</span>&#123;</span><br><span class="line">               <span class="comment">//do something with the response</span></span><br><span class="line">           &#125;).catch(<span class="function">(<span class="params">error</span>)=&gt;</span>&#123;</span><br><span class="line">               <span class="built_in">console</span>.log(error);</span><br><span class="line">           &#125;)</span><br><span class="line">       &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><blockquote><p>但是有时候使用这种方法后台有可能接收不到数据，因为数据没有序列化，所以这个时候可以使用qs插件地址库对数据进行编码，将axios发送的数据格式转换为form-data格式</p></blockquote><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//安装axios的时候会默认安装qs</span></span><br><span class="line"><span class="comment">//在需要交互的.vue文件中添加引用</span></span><br><span class="line"><span class="keyword">import</span> qs <span class="keyword">from</span> <span class="string">'qs'</span>;</span><br></pre></td></tr></table></figure><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//然后在methods使用post方法发出请求</span></span><br><span class="line">methods: &#123;</span><br><span class="line">       postData()&#123;</span><br><span class="line">       <span class="keyword">var</span> data = qs.stringify(&#123;</span><br><span class="line">               id: <span class="string">'1'</span>,</span><br><span class="line">               name: <span class="string">'user1'</span></span><br><span class="line">       &#125;);</span><br><span class="line">           axios.post(<span class="string">'url'</span>, data&#125;).then(<span class="function">(<span class="params">response</span>)=&gt;</span>&#123;</span><br><span class="line">               <span class="comment">//do something with the response</span></span><br><span class="line">           &#125;).catch(<span class="function">(<span class="params">error</span>)=&gt;</span>&#123;</span><br><span class="line">               <span class="built_in">console</span>.log(error);</span><br><span class="line">           &#125;)</span><br><span class="line">       &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+        <tags>
+            
+            <tag> Vue.js </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>vue使用axios获取后台数据</title>
+      <link href="/2018/06/18/vue%E4%BD%BF%E7%94%A8axios%E8%8E%B7%E5%8F%96%E5%90%8E%E5%8F%B0%E6%95%B0%E6%8D%AE/"/>
+      <url>/2018/06/18/vue%E4%BD%BF%E7%94%A8axios%E8%8E%B7%E5%8F%96%E5%90%8E%E5%8F%B0%E6%95%B0%E6%8D%AE/</url>
+      <content type="html"><![CDATA[<blockquote><p>在使用Vue.js进行前端开发的时候，有时候需要从后台获取数据，在这里我是用的是axios的方法。</p></blockquote><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//在需要交互的.vue文件中添加引用</span></span><br><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">'axios'</span>;</span><br></pre></td></tr></table></figure><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//然后在methods中使用get方法对数据进行获取</span></span><br><span class="line">methods: &#123;</span><br><span class="line">getData()&#123;</span><br><span class="line">axios.get(<span class="string">'url'</span>).then(<span class="function">(<span class="params">response</span>)=&gt;</span>&#123;</span><br><span class="line">           <span class="comment">//do something with the response</span></span><br><span class="line">               &#125;).catch(<span class="function">(<span class="params">response</span>)=&gt;</span>&#123;</span><br><span class="line">                   <span class="built_in">console</span>.log(response);</span><br><span class="line">               &#125;)</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+        <tags>
+            
+            <tag> Vue.js </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>Welcome</title>
+      <link href="/2018/06/14/Welcome/"/>
+      <url>/2018/06/14/Welcome/</url>
+      <content type="html"><![CDATA[<p>欢迎来到我的博客，这里将会分享一些我日常遇到的问题或是趣事</p>]]></content>
+      
+      
+    </entry>
+    
+  
+  
 </search>
