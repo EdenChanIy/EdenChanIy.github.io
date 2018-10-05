@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="EdenChanIy的博客">
 <meta property="og:description" content="当前版本：v0.0.1框架SpringMVC,Spring,Mybatis,Maven(SSM+Maven) 文件结构1234567891011121314151617.├── src/main    主目录    ├── java    java文件        └── cn/zd/smart  samrt项目            ├── common      公共模块">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-05T08:53:02.675Z">
+<meta property="og:updated_time" content="2018-10-05T08:56:55.470Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="test">
 <meta name="twitter:description" content="当前版本：v0.0.1框架SpringMVC,Spring,Mybatis,Maven(SSM+Maven) 文件结构1234567891011121314151617.├── src/main    主目录    ├── java    java文件        └── cn/zd/smart  samrt项目            ├── common      公共模块">
@@ -356,6 +356,24 @@
         <h2 id="当前版本：v0-0-1"><a href="#当前版本：v0-0-1" class="headerlink" title="当前版本：v0.0.1"></a>当前版本：v0.0.1</h2><h2 id="框架"><a href="#框架" class="headerlink" title="框架"></a>框架</h2><p>SpringMVC,Spring,Mybatis,Maven(SSM+Maven)</p>
 <h2 id="文件结构"><a href="#文件结构" class="headerlink" title="文件结构"></a>文件结构</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── src/main    主目录</span><br><span class="line">    ├── java    java文件</span><br><span class="line">        └── cn/zd/smart  samrt项目</span><br><span class="line">            ├── common      公共模块</span><br><span class="line">            ├── controller  控制模块</span><br><span class="line">            ├── dao         数据访问模块</span><br><span class="line">            ├── entity      实体类</span><br><span class="line">            ├── interceptor 拦截器</span><br><span class="line">            ├── service     逻辑层</span><br><span class="line">            └── WebSocket   WebSocket模块</span><br><span class="line">    ├── resource    资源目录</span><br><span class="line">        ├── mapper      Mybatis映射文件目录</span><br><span class="line">        ├── spring      spring配置文件目录</span><br><span class="line">        └── 其他配置文件</span><br><span class="line">    └── webapp      web目录</span><br><span class="line">└── pom.xml     Maven依赖配置</span><br></pre></td></tr></table></figure>
 <h2 id="License"><a href="#License" class="headerlink" title="License"></a>License</h2><p>Copyright (c) 2018-present, 国家数字家庭工程技术研究中心</p>
+<p>##Iterator<br>Iterator提供iterator方法用于遍历集合元素，提供了对当前集合的三种操作：判断集合中是否有下一个元素，获取下一个元素以及移除当前元素</p>
+<ul>
+<li>fail-fast机制（快速失败机制）：在实现了Iterator接口的集合类中，都会实现一种fail-fast机制，其目的是让集合在并发操作时，如果一个线程对集合类实例进行了结构性修改（remove，add，clear等操作），另一个线程在迭代时出现错误能够立即抛出异常。其实现原理是通过定义一个modCount变量记录当前集合被操作的次数，然后在每次使用itr对集合进行操作的时候调用checkForComodification方法比较expectedModCount和modCount的值是否相等，不相等的话就代表出现了脏数据，这个时候就会抛出ConcurrentModificationException错误</li>
+</ul>
+<p>##Collection</p>
+<ul>
+<li>Collection接口继承了Iterator接口，在此基础上添加了一些方法，如返回集合大小，判断集合是否为空，在集合中添加元素等等</li>
+</ul>
+<p>###Vector</p>
+<ul>
+<li>Vector类是可以动态增长和收缩的存储对象。Vector类继承了AbstractList类并且实现了List接口，支持随机访问，可以被克隆和序列化<ul>
+<li>底层数据结构为数组，支持随机访问，可以动态扩展</li>
+<li>查询复杂度O(1)，添加和删除的复杂度O(n)</li>
+<li>默认容量大小为10，默认扩容大小为原来的2倍</li>
+<li>线程安全，使用synchronized关键字来实现</li>
+</ul>
+</li>
+</ul>
 
       
     </div>
