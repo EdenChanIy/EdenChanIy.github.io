@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="EdenChanIy的博客">
 <meta property="og:description" content="123456789101112131415常用集合框架└── Iterator接口    ├── Collection接口        ├── List接口            ├── LinkedList类            ├── ArrayList类            └── Vector类            	└── Stack类        └──Set接口">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-05T08:56:21.821Z">
+<meta property="og:updated_time" content="2018-10-05T09:00:42.789Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java集合框架的理解">
 <meta name="twitter:description" content="123456789101112131415常用集合框架└── Iterator接口    ├── Collection接口        ├── List接口            ├── LinkedList类            ├── ArrayList类            └── Vector类            	└── Stack类        └──Set接口">
@@ -355,30 +355,28 @@
 
       
         <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">常用集合框架</span><br><span class="line">└── Iterator接口</span><br><span class="line">    ├── Collection接口</span><br><span class="line">        ├── List接口</span><br><span class="line">            ├── LinkedList类</span><br><span class="line">            ├── ArrayList类</span><br><span class="line">            └── Vector类</span><br><span class="line">            	└── Stack类</span><br><span class="line">        └──Set接口</span><br><span class="line">            ├── HashSet类</span><br><span class="line">            └── TreeSet类</span><br><span class="line">    └── Map接口</span><br><span class="line">        ├── TreeMap类</span><br><span class="line">        ├── HashMap类 ──── ConcurrentMap类</span><br><span class="line">    	└── HashTable类</span><br></pre></td></tr></table></figure>
-<p>##Iterator<br>Iterator提供iterator方法用于遍历集合元素，提供了对当前集合的三种操作：判断集合中是否有下一个元素，获取下一个元素以及移除当前元素</p>
-<ul>
+<h3 id="Iterator"><a href="#Iterator" class="headerlink" title="Iterator"></a>Iterator</h3><ul>
+<li>Iterator提供iterator方法用于遍历集合元素，提供了对当前集合的三种操作：判断集合中是否有下一个元素，获取下一个元素以及移除当前元素</li>
 <li>fail-fast机制（快速失败机制）：在实现了Iterator接口的集合类中，都会实现一种fail-fast机制，其目的是让集合在并发操作时，如果一个线程对集合类实例进行了结构性修改（remove，add，clear等操作），另一个线程在迭代时出现错误能够立即抛出异常。其实现原理是通过定义一个modCount变量记录当前集合被操作的次数，然后在每次使用itr对集合进行操作的时候调用checkForComodification方法比较expectedModCount和modCount的值是否相等，不相等的话就代表出现了脏数据，这个时候就会抛出ConcurrentModificationException错误</li>
 </ul>
-<p>##Collection</p>
-<ul>
+<h2 id="Collection"><a href="#Collection" class="headerlink" title="Collection"></a>Collection</h2><ul>
 <li>Collection接口继承了Iterator接口，在此基础上添加了一些方法，如返回集合大小，判断集合是否为空，在集合中添加元素等等</li>
 </ul>
-<p>###Vector</p>
-<ul>
+<h3 id="Vector"><a href="#Vector" class="headerlink" title="Vector"></a>Vector</h3><ul>
 <li>Vector类是可以动态增长和收缩的存储对象。Vector类继承了AbstractList类并且实现了List接口，支持随机访问，可以被克隆和序列化<ul>
 <li>底层数据结构为数组，支持随机访问，可以动态扩展</li>
+</ul>
+<ul>
 <li>查询复杂度O(1)，添加和删除的复杂度O(n)</li>
 <li>默认容量大小为10，默认扩容大小为原来的2倍</li>
 <li>线程安全，使用synchronized关键字来实现</li>
 </ul>
 </li>
 </ul>
-<p>###Stack</p>
-<ul>
+<h3 id="Stack"><a href="#Stack" class="headerlink" title="Stack"></a>Stack</h3><ul>
 <li>Stack类继承了Vector类，但是对元素的访问和插入做了一定限制，只能在数组尾部添加或删除元素，这体现了一个后进先出（LIFO）的特性</li>
 </ul>
-<p>###ArrayList</p>
-<ul>
+<h3 id="ArrayList"><a href="#ArrayList" class="headerlink" title="ArrayList"></a>ArrayList</h3><ul>
 <li>ArrayList类和Vector类的构造和功能相似<ul>
 <li>底层数据结构为数组，支持随机访问，可以动态扩展</li>
 <li>查询复杂度O(1)，添加和删除的复杂度O(n)</li>
@@ -394,8 +392,7 @@
 </ul>
 </li>
 </ul>
-<p>###LinkedList</p>
-<ul>
+<h3 id="LinkedList"><a href="#LinkedList" class="headerlink" title="LinkedList"></a>LinkedList</h3><ul>
 <li>LinkedList是继承了AbstractSequentialList的双向链表并且实现了Deque接口，可以被当作堆栈、队列或双向队列进行处理，可以被克隆和序列化<ul>
 <li>底层数据结构为双向链表，不支持高效的随机访问，可以动态扩展</li>
 <li>查询复杂度O(n^2)，查找时分两半查找，添加和删除的复杂度O(1)</li>
@@ -404,8 +401,7 @@
 </ul>
 </li>
 </ul>
-<p>###Hashtable</p>
-<ul>
+<h3 id="Hashtable"><a href="#Hashtable" class="headerlink" title="Hashtable"></a>Hashtable</h3><ul>
 <li>Hashtable类是一个key-value映射的哈希表，实现Map接口，继承Directionary类，可被克隆和序列化<ul>
 <li>底层数据结构为单链表数组（Entry[]数组），每个数组元素中的单链表存放的是键值对（Entry对象）</li>
 <li>查找，添加和删除复杂度O(1)（理想状态下）</li>
@@ -416,8 +412,7 @@
 </ul>
 </li>
 </ul>
-<p>###HashMap</p>
-<ul>
+<h3 id="HashMap"><a href="#HashMap" class="headerlink" title="HashMap"></a>HashMap</h3><ul>
 <li>与Hashtable相似是一个key-value映射的散列表，继承AbstractMap类，实现了Map接口，可被克隆和序列化<ul>
 <li>底层数据结构为单链表数组或红黑树数组</li>
 <li>查找，添加和删除复杂度O(1)（理想状态下）</li>
@@ -447,24 +442,20 @@
 </ul>
 </li>
 </ul>
-<p>###HashMap和Hashtable的区别</p>
-<ul>
+<h3 id="HashMap和Hashtable的区别"><a href="#HashMap和Hashtable的区别" class="headerlink" title="HashMap和Hashtable的区别"></a>HashMap和Hashtable的区别</h3><ul>
 <li>继承的父类不同：HashMap继承AbstractMap类，而Hashtable继承Dictionary类</li>
 <li>对null键值支持不同，HashMap支持null键和null值，Hashtable不支持</li>
 <li>HashMap线程不安全，Hashtable线程安全</li>
 <li>初始容量大小和每次扩容大小不同，HashMap默认大小是16，每次扩容容量变为16或是链表转化为红黑树；Hashtable默认大小是11，每次扩容，容量变为原来的2n+1</li>
 <li>计算hash值的方法不同，Hashtable直接使用对象的hashCode，hashCode是JDK根据对象的地址或者字符串或者数字算出来的int类型的数值，然后再使用除留余数法来获取最终位置；因为HashMap扩容使用2倍会导致哈希分布不均匀的问题，所以HashMap会使用使用一些简单的位处理减少哈希冲突</li>
 </ul>
-<p>###ConcurrentHashMap</p>
-<ul>
+<h3 id="ConcurrentHashMap"><a href="#ConcurrentHashMap" class="headerlink" title="ConcurrentHashMap"></a>ConcurrentHashMap</h3><ul>
 <li>由一个个Segment组成，Segment也被称为分段锁。所以ConcurrentHashMap实际上是一个Segment数组，Segment通过继承ReentrantLock来进行加锁，保证了每个Segment是线程安全的，从而实现全局的线程安全。ConcurrentHashMap中有一个concurrencyLevel变量，默认为16，就是说ConcurrentHashMap默认有16个Segment，而每一个Segment中有类似HashMap结构的单链表数组，只不过在这基础上实现了线程安全</li>
 </ul>
-<p>###TreeMap</p>
-<ul>
+<h3 id="TreeMap"><a href="#TreeMap" class="headerlink" title="TreeMap"></a>TreeMap</h3><ul>
 <li>TreeMap的内部基于红黑树实现的，线程不安全</li>
 </ul>
-<p>###Set</p>
-<ul>
+<h3 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h3><ul>
 <li>Set类整体依赖于Map类，即HashSet使用一个HashMap的实例实现，而TreeSet使用一个TreeMap实例实现</li>
 <li>HashSet和HashMap的区别<ul>
 <li>实现的接口不同，HashSet实现Set接口，HashMap实现Map接口</li>
@@ -572,8 +563,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -628,6 +628,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Iterator"><span class="nav-number">1.</span> <span class="nav-text">Iterator</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Collection"><span class="nav-number"></span> <span class="nav-text">Collection</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Vector"><span class="nav-number">1.</span> <span class="nav-text">Vector</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Stack"><span class="nav-number">2.</span> <span class="nav-text">Stack</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ArrayList"><span class="nav-number">3.</span> <span class="nav-text">ArrayList</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LinkedList"><span class="nav-number">4.</span> <span class="nav-text">LinkedList</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hashtable"><span class="nav-number">5.</span> <span class="nav-text">Hashtable</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HashMap"><span class="nav-number">6.</span> <span class="nav-text">HashMap</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HashMap和Hashtable的区别"><span class="nav-number">7.</span> <span class="nav-text">HashMap和Hashtable的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ConcurrentHashMap"><span class="nav-number">8.</span> <span class="nav-text">ConcurrentHashMap</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TreeMap"><span class="nav-number">9.</span> <span class="nav-text">TreeMap</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Set"><span class="nav-number">10.</span> <span class="nav-text">Set</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
