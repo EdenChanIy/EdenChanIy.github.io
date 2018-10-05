@@ -29,4 +29,9 @@
     <url>%2F2018%2F06%2F14%2FWelcome%2F</url>
     <content type="text"><![CDATA[欢迎来到我的博客，这里将会分享一些我日常遇到的问题或是趣事]]></content>
   </entry>
+  <entry>
+    <title><![CDATA[test]]></title>
+    <url>%2F2018%2F06%2F14%2FREADME%2F</url>
+    <content type="text"><![CDATA[当前版本：v0.0.1框架SpringMVC,Spring,Mybatis,Maven(SSM+Maven) 文件结构1234567891011121314151617.├── src/main 主目录 ├── java java文件 └── cn/zd/smart samrt项目 ├── common 公共模块 ├── controller 控制模块 ├── dao 数据访问模块 ├── entity 实体类 ├── interceptor 拦截器 ├── service 逻辑层 └── WebSocket WebSocket模块 ├── resource 资源目录 ├── mapper Mybatis映射文件目录 ├── spring spring配置文件目录 └── 其他配置文件 └── webapp web目录└── pom.xml Maven依赖配置 LicenseCopyright (c) 2018-present, 国家数字家庭工程技术研究中心]]></content>
+  </entry>
 </search>
