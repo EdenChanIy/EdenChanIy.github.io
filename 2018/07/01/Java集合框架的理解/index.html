@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="EdenChanIy的博客">
 <meta property="og:description" content="123456789101112131415常用集合框架└── Iterator接口    ├── Collection接口        ├── List接口            ├── LinkedList类            ├── ArrayList类            └── Vector类            	└── Stack类        └──Set接口">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-05T09:00:42.789Z">
+<meta property="og:updated_time" content="2018-10-05T09:08:21.332Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java集合框架的理解">
 <meta name="twitter:description" content="123456789101112131415常用集合框架└── Iterator接口    ├── Collection接口        ├── List接口            ├── LinkedList类            ├── ArrayList类            └── Vector类            	└── Stack类        └──Set接口">
@@ -359,7 +359,7 @@
 <li>Iterator提供iterator方法用于遍历集合元素，提供了对当前集合的三种操作：判断集合中是否有下一个元素，获取下一个元素以及移除当前元素</li>
 <li>fail-fast机制（快速失败机制）：在实现了Iterator接口的集合类中，都会实现一种fail-fast机制，其目的是让集合在并发操作时，如果一个线程对集合类实例进行了结构性修改（remove，add，clear等操作），另一个线程在迭代时出现错误能够立即抛出异常。其实现原理是通过定义一个modCount变量记录当前集合被操作的次数，然后在每次使用itr对集合进行操作的时候调用checkForComodification方法比较expectedModCount和modCount的值是否相等，不相等的话就代表出现了脏数据，这个时候就会抛出ConcurrentModificationException错误</li>
 </ul>
-<h2 id="Collection"><a href="#Collection" class="headerlink" title="Collection"></a>Collection</h2><ul>
+<h3 id="Collection"><a href="#Collection" class="headerlink" title="Collection"></a>Collection</h3><ul>
 <li>Collection接口继承了Iterator接口，在此基础上添加了一些方法，如返回集合大小，判断集合是否为空，在集合中添加元素等等</li>
 </ul>
 <h3 id="Vector"><a href="#Vector" class="headerlink" title="Vector"></a>Vector</h3><ul>
@@ -473,6 +473,7 @@
 </ul>
 </li>
 </ul>
+<hr>
 
       
     </div>
@@ -592,7 +593,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -638,7 +639,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Iterator"><span class="nav-number">1.</span> <span class="nav-text">Iterator</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Collection"><span class="nav-number"></span> <span class="nav-text">Collection</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Vector"><span class="nav-number">1.</span> <span class="nav-text">Vector</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Stack"><span class="nav-number">2.</span> <span class="nav-text">Stack</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ArrayList"><span class="nav-number">3.</span> <span class="nav-text">ArrayList</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LinkedList"><span class="nav-number">4.</span> <span class="nav-text">LinkedList</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hashtable"><span class="nav-number">5.</span> <span class="nav-text">Hashtable</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HashMap"><span class="nav-number">6.</span> <span class="nav-text">HashMap</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HashMap和Hashtable的区别"><span class="nav-number">7.</span> <span class="nav-text">HashMap和Hashtable的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ConcurrentHashMap"><span class="nav-number">8.</span> <span class="nav-text">ConcurrentHashMap</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TreeMap"><span class="nav-number">9.</span> <span class="nav-text">TreeMap</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Set"><span class="nav-number">10.</span> <span class="nav-text">Set</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Iterator"><span class="nav-number">1.</span> <span class="nav-text">Iterator</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Collection"><span class="nav-number">2.</span> <span class="nav-text">Collection</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Vector"><span class="nav-number">3.</span> <span class="nav-text">Vector</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Stack"><span class="nav-number">4.</span> <span class="nav-text">Stack</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ArrayList"><span class="nav-number">5.</span> <span class="nav-text">ArrayList</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LinkedList"><span class="nav-number">6.</span> <span class="nav-text">LinkedList</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hashtable"><span class="nav-number">7.</span> <span class="nav-text">Hashtable</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HashMap"><span class="nav-number">8.</span> <span class="nav-text">HashMap</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HashMap和Hashtable的区别"><span class="nav-number">9.</span> <span class="nav-text">HashMap和Hashtable的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ConcurrentHashMap"><span class="nav-number">10.</span> <span class="nav-text">ConcurrentHashMap</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TreeMap"><span class="nav-number">11.</span> <span class="nav-text">TreeMap</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Set"><span class="nav-number">12.</span> <span class="nav-text">Set</span></a></li></ol></div>
             
 
           </div>
