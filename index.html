@@ -358,12 +358,12 @@
         
           
             <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">常用集合框架</span><br><span class="line">└── Iterator接口</span><br><span class="line">    ├── Collection接口</span><br><span class="line">        ├── List接口</span><br><span class="line">            ├── LinkedList类</span><br><span class="line">            ├── ArrayList类</span><br><span class="line">            └── Vector类</span><br><span class="line">            	└── Stack类</span><br><span class="line">        └──Set接口</span><br><span class="line">            ├── HashSet类</span><br><span class="line">            └── TreeSet类</span><br><span class="line">    └── Map接口</span><br><span class="line">        ├── TreeMap类</span><br><span class="line">        ├── HashMap类 ──── ConcurrentMap类</span><br><span class="line">    	└── HashTable类</span><br></pre></td></tr></table></figure>
-<p>###Iterator</p>
+<p>##Iterator</p>
 <ul>
 <li>Iterator提供iterator方法用于遍历集合元素，提供了对当前集合的三种操作：判断集合中是否有下一个元素，获取下一个元素以及移除当前元素</li>
 <li>fail-fast机制（快速失败机制）：在实现了Iterator接口的集合类中，都会实现一种fail-fast机制，其目的是让集合在并发操作时，如果一个线程对集合类实例进行了结构性修改（remove，add，clear等操作），另一个线程在迭代时出现错误能够立即抛出异常。其实现原理是通过定义一个modCount变量记录当前集合被操作的次数，然后在每次使用itr对集合进行操作的时候调用checkForComodification方法比较expectedModCount和modCount的值是否相等，不相等的话就代表出现了脏数据，这个时候就会抛出ConcurrentModificationException错误</li>
 </ul>
-<p>###Collection</p>
+<p>##Collection</p>
 <ul>
 <li>Collection接口继承了Iterator接口，在此基础上添加了一些方法，如返回集合大小，判断集合是否为空，在集合中添加元素等等</li>
 </ul>
@@ -786,126 +786,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/14/Welcome/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="EdenChanIy">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/icon1.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="EdenChanIy的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/14/Welcome/" itemprop="url">Welcome</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-14T00:05:40+08:00">
-                2018-06-14
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>欢迎来到我的博客，这里将会分享一些我日常遇到的问题或是趣事</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/14/README/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -980,6 +860,126 @@
             <h2 id="当前版本：v0-0-1"><a href="#当前版本：v0-0-1" class="headerlink" title="当前版本：v0.0.1"></a>当前版本：v0.0.1</h2><h2 id="框架"><a href="#框架" class="headerlink" title="框架"></a>框架</h2><p>SpringMVC,Spring,Mybatis,Maven(SSM+Maven)</p>
 <h2 id="文件结构"><a href="#文件结构" class="headerlink" title="文件结构"></a>文件结构</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── src/main    主目录</span><br><span class="line">    ├── java    java文件</span><br><span class="line">        └── cn/zd/smart  samrt项目</span><br><span class="line">            ├── common      公共模块</span><br><span class="line">            ├── controller  控制模块</span><br><span class="line">            ├── dao         数据访问模块</span><br><span class="line">            ├── entity      实体类</span><br><span class="line">            ├── interceptor 拦截器</span><br><span class="line">            ├── service     逻辑层</span><br><span class="line">            └── WebSocket   WebSocket模块</span><br><span class="line">    ├── resource    资源目录</span><br><span class="line">        ├── mapper      Mybatis映射文件目录</span><br><span class="line">        ├── spring      spring配置文件目录</span><br><span class="line">        └── 其他配置文件</span><br><span class="line">    └── webapp      web目录</span><br><span class="line">└── pom.xml     Maven依赖配置</span><br></pre></td></tr></table></figure>
 <h2 id="License"><a href="#License" class="headerlink" title="License"></a>License</h2><p>Copyright (c) 2018-present, 国家数字家庭工程技术研究中心</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/14/Welcome/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="EdenChanIy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/icon1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="EdenChanIy的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/14/Welcome/" itemprop="url">Welcome</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-14T00:05:40+08:00">
+                2018-06-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>欢迎来到我的博客，这里将会分享一些我日常遇到的问题或是趣事</p>
 
           
         
