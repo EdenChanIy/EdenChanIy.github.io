@@ -286,6 +286,229 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/27/Elasticsearch介绍/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="EdenChanIy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/icon1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="EdenChanIy的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/10/27/Elasticsearch介绍/" itemprop="url">Elasticsearch介绍</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-27T14:19:47+08:00">
+                2019-10-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="什么是Elasticsearch？"><a href="#什么是Elasticsearch？" class="headerlink" title="什么是Elasticsearch？"></a>什么是Elasticsearch？</h3><p>Elasticsearch是对Apache开源库Lucene的封装，提供了RESTful API的操作接口，开箱即用</p>
+<blockquote>
+<p>Elasticsearch是一个分布式实时文件存储，每个字段都被索引并可被搜索</p>
+</blockquote>
+<blockquote>
+<p>Elasticsearch是一个分布式的实时分析搜索引擎，可以扩展到上百台服务器，处理PB级结构化或非结构化的数据</p>
+</blockquote>
+<h3 id="Elastic-Stack"><a href="#Elastic-Stack" class="headerlink" title="Elastic Stack"></a>Elastic Stack</h3><p>核心是Elasticsearch，提供数据存储；向上是Kibana，提供可视化管理；向下是Beats和Logstash，采集来自应用和基础设施的指标以及从第三方数据存储库中提取数据</p>
+<p>Elastic Stack提供一系列企业级解决方案，包括日志、指标、应用性能监控和安全等</p>
+<h3 id="ElasticSearch的特点"><a href="#ElasticSearch的特点" class="headerlink" title="ElasticSearch的特点"></a>ElasticSearch的特点</h3><ul>
+<li>可扩展</li>
+<li>实时</li>
+<li>开发者友好</li>
+<li>多样的存储</li>
+<li>搜索和聚合</li>
+<li>倒排索引</li>
+</ul>
+<h3 id="Elasticseach基础概念"><a href="#Elasticseach基础概念" class="headerlink" title="Elasticseach基础概念"></a>Elasticseach基础概念</h3><ul>
+<li><p>索引：含有相同属性的文档集合</p>
+</li>
+<li><p>类型：索引可以定义一个或多个类型，文档必须属于一个类型</p>
+</li>
+</ul>
+<ul>
+<li>文档：可被索引的基本单位</li>
+</ul>
+<p>与MySQL的对应关系（参考理解，并不是严格对应，具体有区别）：</p>
+<p>索引 —— 数据库</p>
+<p>类型 —— 表</p>
+<p>文档 —— 行</p>
+<p>字段 —— 列</p>
+<h3 id="RESTful-API"><a href="#RESTful-API" class="headerlink" title="RESTful API"></a>RESTful API</h3><h4 id="发送请求"><a href="#发送请求" class="headerlink" title="发送请求"></a>发送请求</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -X&lt;VERB&gt; '&lt;PORTOCOL&gt;://&lt;HOST&gt;:&lt;PORT&gt;/&lt;PATH&gt;?&lt;QUERY-STRING&gt;' -d '&lt;BODY&gt;'</span><br></pre></td></tr></table></figure>
+<p>VERB——Http方法：GET、POST、PUT、HEAD、DELETE</p>
+<p>PROTOCOL——Http或Https协议</p>
+<p>HOST——Elasticsearch集群中任何一个节点的主机名，如果在本地就是localhost</p>
+<p>PORT——Elasticsearch服务所在端口，默认为9200</p>
+<p>PATH——API路径，如-search；PATH可以包含多个组件</p>
+<p>QUERTY-STRING——一些可选的查询参数</p>
+<p>BODY——一个JSON格式的请求主体</p>
+<h4 id="一个简单的请求"><a href="#一个简单的请求" class="headerlink" title="一个简单的请求"></a>一个简单的请求</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">curl -XGET 'http://localhost:9200/articles/_count?pretty' -d '</span><br><span class="line">&#123;</span><br><span class="line">	"query": &#123;</span><br><span class="line">		"match_all": &#123;&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;'</span><br></pre></td></tr></table></figure>
+<p>这个命令搜索articles索引下的文档个数，在Kibana的控制台中可以简写为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">GET /articles/_count</span><br><span class="line">&#123;</span><br><span class="line">	&quot;query&quot;: &#123;</span><br><span class="line">		&quot;match_all&quot;: &#123;&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Elasticsearch中的文档"><a href="#Elasticsearch中的文档" class="headerlink" title="Elasticsearch中的文档"></a>Elasticsearch中的文档</h3><p>Elasticsearch可以面向更为复杂的应用对象，比如包含日期、地理位置、另一个对象或者数组。因为Elasticsearch是面向文档的，意味着它可以存储整个对象或文档，并索引每个文档的内容使之可以被搜索</p>
+<p>JSON——Elasticsearch使用JSON作为文档序列化格式</p>
+<h3 id="基本的CRUD操作"><a href="#基本的CRUD操作" class="headerlink" title="基本的CRUD操作"></a>基本的CRUD操作</h3><ul>
+<li><p>索引（插入）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PUT /&lt;index&gt;/_doc/&lt;num&gt; &#123;Body&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>搜索</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GET /&lt;index&gt;/_doc/&lt;num&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>更新</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">POST /&lt;index&gt;/_update/&lt;num&gt; &#123;Body&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>删除</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DELETE /&lt;index&gt;/_doc/&lt;num&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Bulk API：支持上述四种类型的批量操作，一般包含两行，其中删除操作只需一行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">POST /_bulk</span><br><span class="line">&#123;&quot;&lt;operation&gt;&quot;:&#123;&quot;_index&quot;:&quot;&lt;index&gt;&quot;,&quot;_id&quot;:&quot;&lt;id&gt;&quot;&#125;&#125;</span><br><span class="line">&#123;&quot;&lt;field&gt;&quot;:&quot;&lt;value&gt;&quot;&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>mget：批量读取</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GET /_mget</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>msearch</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">POST /&lt;index&gt;/_msearch</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="Elasticseach的其他特性"><a href="#Elasticseach的其他特性" class="headerlink" title="Elasticseach的其他特性"></a>Elasticseach的其他特性</h3><ul>
+<li>分词器分词</li>
+<li>Mapping（映射）</li>
+<li>Template</li>
+<li>聚合分析（文档相关性算分）</li>
+<li>……</li>
+</ul>
+<h3 id="Elasticsearch集群"><a href="#Elasticsearch集群" class="headerlink" title="Elasticsearch集群"></a>Elasticsearch集群</h3><ul>
+<li>一个节点是一个运行Elasticsearch实例的Java进程</li>
+<li>一个集群由一到多个节点共同组成，每个节点担任不同角色</li>
+<li>一个主分片是一个Lucene实例，索引部分或全部数据</li>
+<li>一个副分片是一个主分片的拷贝</li>
+<li>索引是指向同一个或多个物理分片的逻辑命名空间</li>
+</ul>
+<h3 id="Elasticsearch的分布式特性"><a href="#Elasticsearch的分布式特性" class="headerlink" title="Elasticsearch的分布式特性"></a>Elasticsearch的分布式特性</h3><p>Elasticseach尽可能屏蔽了分布式系统的复杂性，在后台自动提供一些功能</p>
+<ul>
+<li>自动分配文档到不同分片中，文档可以存储在一个或多个节点</li>
+<li>按集群节点均衡分配分片，从而实现索引和搜索过程的负载均衡</li>
+<li>复制分片以实现数据冗余，防止硬件故障带来的数据缺失</li>
+<li>基础扩容是无缝整合新节点，重新分配分片</li>
+</ul>
+<blockquote>
+<p>Elasticsearch利用分片将数据分发到集群内的各处。分片是数据的容器，文档保存在分片中，分片又被分配到集群的各个节点中，当集群规模变化时，Elasticsearch自动在各节点中分配迁移分片，使数据均匀分布</p>
+</blockquote>
+<h3 id="SpringBoot继承Elasticseach的几种方式"><a href="#SpringBoot继承Elasticseach的几种方式" class="headerlink" title="SpringBoot继承Elasticseach的几种方式"></a>SpringBoot继承Elasticseach的几种方式</h3><ul>
+<li>Transport Client（新版本弃用）</li>
+<li><p>Jest —— 一个Elasticsearch的Java Http Rest Client</p>
+<ul>
+<li>提供Restful API</li>
+<li>支持不同版本的Elasticsearch集群</li>
+<li>安全——可在Http层添加安全代理</li>
+</ul>
+</li>
+<li><p>Spring Data —— Elasticseach Template</p>
+</li>
+<li>Spring Data Elasticsearch Repository —— 对Elasticseach Template的封装</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/01/几本书的读书笔记/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1497,7 +1720,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1510,7 +1733,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
